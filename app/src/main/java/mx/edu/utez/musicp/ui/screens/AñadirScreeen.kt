@@ -73,12 +73,12 @@ fun AñadirScreen(viewModel: PlaylistViewModel, navController: NavController,mod
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        Title("Registrar Nueva Mascota")
+        Title("Registrar Nueva PLaylist")
 
         // --- 7. VISTA PREVIA DE LA IMAGEN ---
         AsyncImage(
             model = selectedImageUri,
-            contentDescription = "Foto de la nueva mascota",
+            contentDescription = "Foto de la nueva playlist",
             placeholder = painterResource(id = R.drawable.noposter), // Placeholder
             error = painterResource(id = R.drawable.noposter),
             contentScale = ContentScale.Crop,
@@ -126,7 +126,7 @@ fun AñadirScreen(viewModel: PlaylistViewModel, navController: NavController,mod
         TextField(
             value = descripcion,
             onValueChange = { descripcion = it },
-            label = { Text("Sinopsis:") },
+            label = { Text("descripcion:") },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(modifier = Modifier.height(30.dp))

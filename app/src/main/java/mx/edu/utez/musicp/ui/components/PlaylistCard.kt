@@ -64,7 +64,6 @@ fun PlaylistCard(
             AsyncImage(
                 model = p.imagenUri,
                 contentDescription = "Imagen de ${p.titulo}",
-                placeholder = painterResource(id = R.drawable.noposter),
                 error = painterResource(id = R.drawable.noposter),
                 contentScale = ContentScale.Crop,
                 modifier = Modifier

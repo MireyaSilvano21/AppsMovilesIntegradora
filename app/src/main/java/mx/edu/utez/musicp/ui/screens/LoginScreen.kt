@@ -39,7 +39,7 @@ fun LoginScreen(viewModel: LoginViewModel, navController: NavController) {
         verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterVertically)
     ) {
         CircularImage(R.drawable.noposter)
-        Title("Peliculas\n")
+        Title("PLaylist\n")
 
         UserInputField(
             viewModel = viewModel,
