@@ -2,7 +2,6 @@ package mx.edu.utez.musicp.viewmodel
 
 import android.content.Context
 import android.net.Uri
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -12,7 +11,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import mx.edu.utez.musicp.data.model.Playlist
 import mx.edu.utez.musicp.data.repository.PlaylistRepository
-import kotlin.collections.find
 import kotlin.jvm.java
 
 class PlaylistViewModel(private val repository: PlaylistRepository) : ViewModel() {
@@ -41,7 +39,7 @@ class PlaylistViewModel(private val repository: PlaylistRepository) : ViewModel(
                 _playlistsUiState.value = repository.getPlaylist()
             } catch (e: Exception) {
                 // Opcional: Manejar error, por ejemplo, dejando la lista vacía o mostrando un Toast
-                Log.e("PLAYLIST_VM", "Error fetching playlists: ${e.message}")
+                android.util.Log.e("PLAYLIST_VM", "Error fetching playlists: ${e.message}")
             }
         }
     }
@@ -73,7 +71,7 @@ class PlaylistViewModel(private val repository: PlaylistRepository) : ViewModel(
                 //  CORRECCIÓN: Llamamos a fetchPlaylist
                 fetchPlaylist()
             } catch (e: Exception) {
-                Log.e("PLAYLIST_VM", "Error deleting playlist: ${e.message}")
+                android.util.Log.e("PLAYLIST_VM", "Error deleting playlist: ${e.message}")
             }
         }
     }
@@ -91,7 +89,7 @@ class PlaylistViewModel(private val repository: PlaylistRepository) : ViewModel(
                 //  CORRECCIÓN: Llamamos a fetchPlaylist
                 fetchPlaylist()
             } catch (e: Exception) {
-                Log.e("PLAYLIST_VM", "Error updating playlist: ${e.message}")
+                android.util.Log.e("PLAYLIST_VM", "Error updating playlist: ${e.message}")
             }
         }
     }
@@ -108,6 +106,6 @@ class PlaylistViewModelFactory(
             // El create solo pasa el repository
             return PlaylistViewModel(repository) as T
         }
-        throw kotlin.IllegalArgumentException("Unknown ViewModel class")
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

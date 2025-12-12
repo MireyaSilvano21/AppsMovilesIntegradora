@@ -11,8 +11,6 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import mx.edu.utez.musicp.data.network.RetrofitClient
 import mx.edu.utez.musicp.data.repository.PlaylistRepository
-import mx.edu.utez.musicp.ui.screens.AñadirScreen
-import mx.edu.utez.musicp.ui.screens.EditScreen
 import mx.edu.utez.musicp.ui.screens.LoginScreen
 import mx.edu.utez.musicp.ui.screens.SongsListScreen
 import mx.edu.utez.musicp.viewmodel.LoginViewModel
@@ -54,7 +52,7 @@ fun AppNavigation() {
 
         // 3. Ruta de Añadir Playlist (Compartimos la instancia única)
         composable("añadir") {
-            AñadirScreen(viewModel = playlistViewModel, navController = navController)
+            AñadirScreeen(viewModel = playlistViewModel, navController = navController)
         }
 
 

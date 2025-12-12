@@ -14,8 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.NavOptionsBuilder
-import androidx.navigation.PopUpToBuilder
 import mx.edu.utez.musicp.R
 import mx.edu.utez.musicp.viewmodel.LoginViewModel
 import mx.edu.utez.peeeli.ui.components.buttons.PrimaryButton
@@ -24,7 +22,7 @@ import mx.edu.utez.peeeli.ui.components.inputs.PasswordField
 import mx.edu.utez.peeeli.ui.components.inputs.UserInputField
 import mx.edu.utez.peeeli.ui.components.texts.Link
 import mx.edu.utez.peeeli.ui.components.texts.Title
-import kotlin.text.isNotEmpty
+
 
 
 @Composable
@@ -39,7 +37,7 @@ fun LoginScreen(viewModel: LoginViewModel, navController: NavController) {
         verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterVertically)
     ) {
         CircularImage(R.drawable.noposter)
-        Title("PLaylist\n")
+        Title("Peliculas\n")
 
         UserInputField(
             viewModel = viewModel,
@@ -66,9 +64,7 @@ fun LoginScreen(viewModel: LoginViewModel, navController: NavController) {
         PrimaryButton("Iniciar sesión") {
             viewModel.login {
                 navController.navigate("main") {
-                    NavOptionsBuilder.popUpTo("login") {
-                        PopUpToBuilder.inclusive = true
-                    } // Evita volver al login
+                    popUpTo("login") { inclusive = true } // Evita volver al login
                 }
             }
         }
